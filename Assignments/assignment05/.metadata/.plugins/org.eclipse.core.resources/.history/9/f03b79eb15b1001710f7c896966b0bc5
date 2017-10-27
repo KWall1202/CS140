@@ -1,0 +1,28 @@
+package assignment05;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Lodging implements TravelExpenses {
+	private LocalDate startDate;
+	private LocalDate endDate;
+	private String lodgingName;
+	private int numberOfNights;
+	private int costOfStay;
+	
+	
+	public Lodging(LocalDate startDate, LocalDate endDate, String lodgingName, int costOfStay) {
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.lodgingName = lodgingName;
+		this.costOfStay = costOfStay;
+		numberOfNights = (int)ChronoUnit.DAYS.between(startDate, endDate);
+	}
+
+
+	@Override
+	public double amountToReimburse() {
+		return costOfStay;
+	}
+
+}

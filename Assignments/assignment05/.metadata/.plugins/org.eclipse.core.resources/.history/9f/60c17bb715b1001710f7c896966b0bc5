@@ -1,0 +1,16 @@
+package assignment05;
+
+public class Lodging implements TravelExpenses {
+	private LocalDate startDate;
+	private LocalDate endDate;
+	private String lodgingName;
+	private int numberOfNights;
+	private int costOfStay;
+	
+	@Override
+	public double amountToReimburse() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

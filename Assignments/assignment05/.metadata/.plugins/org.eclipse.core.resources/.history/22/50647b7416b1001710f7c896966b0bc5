@@ -1,0 +1,14 @@
+package assignment05;
+
+public class TravelByAir implements TravelExpenses {
+	private LocalDate outboundStartDate;
+	private LocalDate inboundEndDate;
+	private String airlines;
+	private double totalCost;
+	
+	@Override
+	public double amountToReimburse() {
+		return totalCost;
+	}
+
+}

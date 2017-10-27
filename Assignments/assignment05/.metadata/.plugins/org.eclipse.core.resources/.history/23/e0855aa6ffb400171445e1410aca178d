@@ -1,0 +1,13 @@
+package assignment05;
+
+import java.util.Comparator;
+
+public class ExpensesOrder implements Comparator<TravelExpenses> {
+
+	@Override
+	public int compare(TravelExpenses arg0, TravelExpenses arg1) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

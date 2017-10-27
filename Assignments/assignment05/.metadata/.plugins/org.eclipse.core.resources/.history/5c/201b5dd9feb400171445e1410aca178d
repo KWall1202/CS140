@@ -1,0 +1,14 @@
+package assignment05;
+
+public class TravelByRail implements TravelExpenses {
+	private LocalDate inboundStartDate;
+	private LocalDate outboundEndDate;
+	private String[] railLines;
+	private double totalCost;
+	@Override
+	public double amountToReimburse() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

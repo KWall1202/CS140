@@ -1,0 +1,26 @@
+package assignment05;
+
+import java.time.LocalDate;
+
+public class Meal implements TravelExpenses {
+	private MealType mealType;
+	private double amountPaid;
+	private LocalDate date;
+	
+	public Meal(MealType mealType, double amountPaid, LocalDate date) {
+		super();
+		this.mealType = mealType;
+		this.amountPaid = amountPaid;
+		this.date = date;
+	}
+
+	@Override
+	public double amountToReimburse() {
+		return Math.max(amountPaid, mealType.getMax());
+	}
+	
+	@Override
+	public String getDescription() {
+		return mealType + " on " + date;
+	}
+}

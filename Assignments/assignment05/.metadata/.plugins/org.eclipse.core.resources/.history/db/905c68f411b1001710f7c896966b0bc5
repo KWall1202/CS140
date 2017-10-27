@@ -1,0 +1,20 @@
+package assignment05;
+
+import java.time.LocalDate;
+
+public class TravelByRentalCar implements TravelExpenses {
+	private double totalRentCost;
+	private double fuelCost;
+	private double fuelUsed;
+	private int numberOfDaysRented;
+	private String rentalCompany;	
+	private LocalDate startDate;
+	private LocalDate endDate;
+	
+	@Override
+	public double amountToReimburse() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

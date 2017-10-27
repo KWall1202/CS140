@@ -1,0 +1,38 @@
+package assignment05;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class TravelByRentalCar implements TravelExpenses {
+	private double totalRentalCost;
+	private double fuelCost;
+	private double fuelUsed;
+	private int numberOfDaysRented;
+	private String rentalCompany;	
+	private LocalDate startDate;
+	private LocalDate endDate;
+	
+	@Override
+	public double amountToReimburse() {
+		// TODO Auto-generated method stub
+		return fuelCost + totalRentalCost;
+	}
+
+	public TravelByRentalCar(double aTotalRentalCost, String aRentalCompany, LocalDate aStartDate, LocalDate aEndDate) {
+		totalRentalCost = aTotalRentalCost;
+		rentalCompany = aRentalCompany;
+		startDate = aStartDate;
+		endDate = aEndDate;
+		numberOfDaysRented = (int)ChronoUnit.DAYS.between(startDate, endDate);
+	}
+	
+	public void addFuel(double numGallons, double cost) {
+		fuelUsed += numGallons;
+		fuelCost += cost;
+	}
+	
+	@Override
+	public String getDescription() {
+		return String.format("Rented for %d days from %s\nUsed %d gallons of fuel from %s to %s", numberOfDaysRented, rentalCompany, Math.round(fuelUsed), startDate, endDate);
+	}
+}

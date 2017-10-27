@@ -1,0 +1,11 @@
+package assignment05;
+
+public class Meal implements TravelExpenses {
+
+	@Override
+	public double amountToReimburse() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

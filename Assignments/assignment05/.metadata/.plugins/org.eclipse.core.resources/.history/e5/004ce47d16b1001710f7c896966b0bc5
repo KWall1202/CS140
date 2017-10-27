@@ -1,0 +1,21 @@
+package assignment05;
+
+public class TravelByAir implements TravelExpenses {
+	private LocalDate outboundStartDate;
+	private LocalDate inboundEndDate;
+	private String airlines;
+	private double totalCost;
+	
+	public TravelByAir(LocalDate outboundStartDate, LocalDate inboundEndDate, String airlines, double totalCost) {
+		this.outboundStartDate = outboundStartDate;
+		this.inboundEndDate = inboundEndDate;
+		this.airlines = airlines;
+		this.totalCost = totalCost;
+	}
+
+	@Override
+	public double amountToReimburse() {
+		return totalCost;
+	}
+
+}

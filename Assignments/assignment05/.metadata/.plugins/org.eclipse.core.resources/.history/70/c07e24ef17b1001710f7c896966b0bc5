@@ -1,0 +1,27 @@
+package assignment05;
+
+import java.util.ArrayList;
+
+public interface TravelExpenses {
+	double mileage = 0.53;
+	static double BREAKFAST_MAX = 8.0;
+	static double LUNCH_MAX = 10.0;
+	static double DINNER_MAX = 40.0;
+	
+	double amountToReimburse();
+	
+	default String getDescription() {
+		throw new UnsupportedOperationException("Must be implemented by class");
+	}
+	
+	static void printReport(ArrayList<TravelExpenses> list) {
+		double totalExpenses = 0;
+		for(TravelExpenses i : list) {
+			totalExpenses += i.amountToReimburse();
+			String s = String.format("$%.2f",  i.amountToReimburse());
+			System.out.println(i.getDescription() + s);
+		}
+		System.out.println(String.format("Total Expenses\n$%.2f", totalExpenses);
+		//TODO Make the total expenses
+	}
+}
