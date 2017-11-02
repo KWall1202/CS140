@@ -12,18 +12,12 @@ public class Server {
 		allMenus.print();
 	}
 	
-	private void printVegetarianMenuHelper(MComp menus) {
-		for(MComp comp: menus) {
-			if(comp instanceof MenuItem) {
-				if(comp.isVegetarian()) comp.print();
-			} else {
-				printVegetarianMenuHelper(comp);
-			}
-		}
-	}
-	
 	public void printVegetarianMenu() {
 		System.out.println("\nVEGETARIAN MENU\n----");
-		printVegetarianMenuHelper(allMenus);
+		for(MComp comp: allMenus) {
+			if(comp instanceof MenuItem) {
+				if(comp.isVegetarian()) comp.print();
+			}
+		}
 	}
 }

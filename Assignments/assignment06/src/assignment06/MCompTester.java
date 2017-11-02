@@ -126,9 +126,6 @@ public class MCompTester {
 			if(item instanceof MenuItem) {
 				if(cheapest == null) cheapest = (MenuItem)item;
 				if(((MenuItem)item).getPrice() < cheapest.getPrice()) cheapest = (MenuItem)item;
-			} else {
-				if(cheapest == null) cheapest = cheapest(item);
-				if(cheapest(item).getPrice() < cheapest.getPrice()) cheapest = cheapest(item);
 			}
 		}
 		return cheapest;
@@ -140,9 +137,6 @@ public class MCompTester {
 			if(item instanceof MenuItem) {
 				if(dearest == null) dearest = (MenuItem)item;
 				if(((MenuItem)item).getPrice() > dearest.getPrice()) dearest = (MenuItem)item;
-			} else {
-				if(dearest == null) dearest = cheapest(item);
-				if(cheapest(item).getPrice() > dearest.getPrice()) dearest = cheapest(item);
 			}
 		}
 		return dearest;
@@ -154,9 +148,6 @@ public class MCompTester {
 			if(item instanceof MenuItem) {
 				if(longestDescr == null) longestDescr = (MenuItem)item;
 				if(((MenuItem)item).getDescription().length() > longestDescr.getDescription().length()) longestDescr = (MenuItem)item;
-			} else {
-				if(longestDescr == null) longestDescr = cheapest(item);
-				if(cheapest(item).getDescription().length() > longestDescr.getDescription().length()) longestDescr = cheapest(item);
 			}
 		}
 		return longestDescr;

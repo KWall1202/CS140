@@ -35,7 +35,7 @@ public class MenuItem implements MComp {
 		if(vegetarian) {
 			System.out.print("(v)");
 		}
-		System.out.println(", " + price + "\n\t\t" + description);
+		System.out.println(", " + price + "\n\t\t-- " + description);
 	}
 
 	public MenuItem(String name, String description, boolean vegetarian, double price) {
