@@ -30,7 +30,7 @@ public class CompositeIterator implements Iterator<MComp> {
 		if(!hasNext()) return null;
 		Iterator<MComp> iterator = stack.peek();
 		MComp comp = iterator.next();
-		if(comp instanceof Menu) stack.push(comp.iterator());
+		if (comp instanceof Menu) comp.pushToStack(stack);
 		return comp;
 	}
 

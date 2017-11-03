@@ -9,7 +9,10 @@ public class Server {
 	}
 	
 	public void printMenu() {
-		allMenus.print();
+		System.out.println("\nALL MENUS\n----");
+		for(MComp comp : allMenus) {
+			comp.print();
+		}
 	}
 	
 	public void printVegetarianMenu() {

@@ -2,6 +2,7 @@ package assignment06;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Stack;
 
 public class Menu implements MComp {
 	private String name;
@@ -42,15 +43,16 @@ public class Menu implements MComp {
 	@Override
 	public void print() {
 		System.out.println("\n" + name + ", " + description + "\n----------------------------");
-		Iterator<MComp> iter = comps.iterator();
-		while(iter.hasNext()) {
-			iter.next().print();
-		}
 	}
 
 	@Override
 	public Iterator<MComp> iterator() {
 		return new CompositeIterator(comps.iterator());
+	}
+	
+	@Override
+	public void pushToStack(Stack<Iterator<MComp>> stack) {
+		stack.push(comps.iterator());
 	}
 
 }

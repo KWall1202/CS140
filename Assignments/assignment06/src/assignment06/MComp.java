@@ -1,5 +1,8 @@
 package assignment06;
 
+import java.util.Iterator;
+import java.util.Stack;
+
 public interface MComp extends Iterable<MComp> {
 	default void add(MComp mComp) {
 		throw new UnsupportedOperationException();
@@ -30,6 +33,10 @@ public interface MComp extends Iterable<MComp> {
 	}
 	
 	default void print() {
+		throw new UnsupportedOperationException();
+	}
+	
+	default void pushToStack(Stack<Iterator<MComp>> stack) {
 		throw new UnsupportedOperationException();
 	}
 }
