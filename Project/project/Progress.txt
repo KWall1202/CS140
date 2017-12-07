@@ -1,0 +1,146 @@
+11/25/16: Project part 1
+	Loader was written, the main method ran with no errors when given the factorial file.
+	Next step is error checking, at the bottom of project part 1.
+	I don't know where to put the error checking, I'm assuming in loader?
+	Does it all go in the load() method, or should a checkForErrors() method be made? Or a separate class for it?
+	
+11/28/16:
+	-When running the main method of ViewMediator, the common bound between the two Data Memory Views is 160, this is different from the bound in NoMenus.jpg (project part 2), where the bound is 100.
+	-All 145 tests in InstructionTester passed!
+	-Need to write ErrorCheckingAssembler (I believe it will be a separate class)
+	-CodeAccessException is mentioned in ViewMediator in step() and execute(), but we never implemented CodeAccessException... what do?
+	-All keystrokes (ALT+F to open assemble menu, CTRL+M to make file, CTRL+L to load file, CTRL+E to exit, CTRL+G to go, there isn't a keystroke to open the execute menu) seem to work.
+	-Should various print statements still be occurring when the final program runs? Should all the main methods be left in?
+	
+11/29/16:
+	-The files that are meant to assemble and execute (merge.pasm, qsort.pasm, factorial.pasm, factorialindirect7.pasm) all assemble and execute properly.
+	-Still need error checking assembler
+	-Need to test files involving runtime errors
+	-Still no CodeAccessException implementation
+	
+	
+12/4/17:
+	-FullAssembler is made but not tested, may be sloppy?
+	-It is late
+	-I have to sleep because there is class tomorrow
+	-I do not want to test it tonight
+	-I'll test it tomorrow
+
+12/7/17:
+	-It was found that the clear() method was supposed to be clearing the code view panel, but it wasn't. This issue was resolved (described below)
+	-The project is complete!
+	
+CURRENT TASKS (As of 12/7/16):
+	Implementations:
+		-None!
+
+	Bugs:
+		-Assembling multiple files in repetition causes errors. *ISSUE RESOLVED*
+			-resetting readingCode to true at the end of assemble() lets the assembler partition future files properly, but when I added that I get a BufferOverFlowException a little later on in assemble()
+			-resetting noArgCount to 0 at the end of assemble() lets the assembler create byteBuffers in future files with the proper size, and lets the assembler assemble multiple files
+		-Clear() did not clear the CodeViewPanel *ISSUE RESOLVED*
+			-It was found that programSize was somehow getting set to below 0
+			-In clearCode() in memory it was found that the last command was to set programSize to -1 and this was incorrect.
+			-Removing that line fixed the problem
+			
+			
+TESTING ERROR FILES (6:51 PM 12/05/17):
+	-01
+		-assembles
+		This file is meant to assemble but not to be run
+	-02
+		-assembles
+		This file is meant to assemble but not to be run
+	-03e
+		-Error on line 32: illegal mnemonic
+	-04e
+		-Error on line 34: data has non-numeric memory address
+	-05e
+		-Error on line 15: illegal blank
+	-06e
+		-Error on line 21: line starts with whitespace
+		-Error on line 15: illegal blank
+	-07e
+		-Error on line 15: illegal whitespace
+		-Error on line 20: illegal blank
+	-08e
+		-Error on line 15: illegal whitespace
+		-Error on line 20: illegal blank
+	-09e
+		-Error on line 33: illegal blank
+	-10e
+		-Screenshot of errors
+	-11e
+		-Error on line 30: illegal mnemonic
+		-Error on line 31: DATA not upper case
+		-Error on line 34: illegal blank
+	-12e
+		-Error on line 9: mnemonic must be upper case
+		-Error on line 30: illegal mnemonic
+		-Error on line 34: illegal blank
+	-13e
+		-Error on line 26: mnemonic cant take arguments
+		-Error on line 30: illegal mnemonic
+	-14e
+		-Error on line 30: illegal mnemonic
+	-15e
+		-Error on line 8: mnemonic must be upper case
+	-16e
+		-Error on line 8: illegal mnemonic
+		-Error on line 29: this mnemonic cannot take arguments
+	-17e
+		-Screenshot of errors
+	-18e
+		-Error on line 5: this mnemonic has too many arguments
+	-19e
+		-Error on line 11: this mnemonic has too many arguments
+		-Error on line 30: illegal white space
+	-20e
+		-Error on line 10: argument is not a hex number
+	-21e
+		-Error on line 32: data has non-numeric memory address
+	-22e
+		-Error on line 32: data has non-numeric memory value
+	-23e
+		-Error on line 32: data has non-numeric memory address
+		-Error on line 32: data has non-numeric memory value
+	-24e
+		-Error on line 12: argument is not a hex number
+		-Error on line 31: data has non-numeric memory value
+		-Error on line 32: data has non-numeric memory value
+	-25e
+		-Error on line 33: data has non-numeric memory value
+	-100rt
+		-Assembles
+		-Illegal access to array index from line 11
+			-Exception message: -1
+	-101rt
+		-Assembles
+		-Attempt to divide by zero from line 10
+			-Exception message: cannot divide by zero
+	-102rt
+		-Illegal Access to code from line -17
+			-Exception message: Illegal access to code
+	-103rt
+		-Assembles
+		-Attempt to divide by zero from line 16
+			-Exception message: Cannot divide by zero
+	-104rt
+		-Assembles
+		-Attempt to divide by zero from line 16
+			-Exception message: Cannot divide by zero
+	-merge
+		-Assembles
+		-Executes properly
+	-qsort
+		-Assembles
+		-Executes properly
+	-factorial
+		-Assembles
+		-Executes properly
+	-factorial7indirect
+		-Assembles
+		-Executes properly
+	
+These are all the intended results from these test files
+			

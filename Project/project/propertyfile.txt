@@ -1,0 +1,4 @@
+#File locations
+#Thu Dec 07 12:34:11 EST 2017
+ExecutableDirectory=D\:/Classes/CS/CS 140/Project/project/testFiles/pexe/
+SourceDirectory=D\:/Classes/CS/CS 140/Project/project/testFiles/pasm/
